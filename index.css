@@ -1,0 +1,260 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    min-height: 100vh;
+    padding: 20px;
+}
+
+.container {
+    background-color: #0d5f3f;
+    border-radius: 15px;
+    padding: 40px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+    max-width: 800px;
+    width: 100%;
+}
+
+h1 {
+    color: #fff;
+    text-align: center;
+    margin-bottom: 30px;
+    font-size: 2.5em;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.game-info {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    margin-bottom: 30px;
+}
+
+.info-box {
+    background-color: rgba(255, 255, 255, 0.1);
+    border: 2px solid #ffd700;
+    border-radius: 10px;
+    padding: 20px;
+    text-align: center;
+    color: #fff;
+}
+
+.info-box h3 {
+    color: #ffd700;
+    margin-bottom: 10px;
+    font-size: 1.2em;
+}
+
+.info-box p {
+    font-size: 1.1em;
+    margin: 10px 0;
+}
+
+.cards-area {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    margin-bottom: 30px;
+}
+
+.player-hand,
+.dealer-hand {
+    background-color: rgba(0, 0, 0, 0.3);
+    border: 2px solid #ffd700;
+    border-radius: 10px;
+    padding: 20px;
+    min-height: 150px;
+    display: flex;
+    flex-direction: column;
+}
+
+.hand-title {
+    color: #ffd700;
+    font-weight: bold;
+    margin-bottom: 10px;
+    font-size: 1.1em;
+}
+
+.cards-display {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    min-height: 100px;
+    align-content: flex-start;
+}
+
+.card {
+    background-color: #fff;
+    border: 4px solid #333;
+    border-radius: 4px;
+    width: 100px;
+    height: auto;
+    object-fit: contain;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    font-size: 1.5em;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+.card.hidden {
+    background: linear-gradient(
+        45deg,
+        #1a1a1a 25%,
+        #2a2a2a 25%,
+        #2a2a2a 50%,
+        #1a1a1a 50%,
+        #1a1a1a 75%,
+        #2a2a2a 75%
+    );
+    background-size: 20px 20px;
+    color: transparent;
+}
+
+.hand-value {
+    color: #ffd700;
+    margin-top: 10px;
+    font-weight: bold;
+    font-size: 1.1em;
+}
+
+.message-box {
+    background-color: #ffd700;
+    color: #0d5f3f;
+    border-radius: 10px;
+    padding: 15px;
+    text-align: center;
+    margin-bottom: 30px;
+    font-weight: bold;
+    font-size: 1.1em;
+    min-height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.buttons {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+button {
+    background-color: #ffd700;
+    color: #0d5f3f;
+    border: none;
+    border-radius: 8px;
+    padding: 12px 30px;
+    font-size: 1em;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+button:hover {
+    background-color: #ffed4e;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.4);
+}
+
+button:disabled {
+    background-color: #999;
+    color: #666;
+    cursor: not-allowed;
+    transform: none;
+}
+
+button.stand {
+    background-color: #ff6b6b;
+}
+    
+button.hit {
+    background-color: #4CAF50;
+}
+
+button.secondary:hover {
+    background-color: #ff8787;
+}
+
+.bet-section {
+    background-color: rgba(255, 255, 255, 0.1);
+    border: 2px solid #ffd700;
+    border-radius: 10px;
+    padding: 20px;
+    margin-bottom: 30px;
+    text-align: center;
+    color: #fff;
+}
+
+.bet-section input {
+    padding: 10px;
+    margin: 10px 5px;
+    border-radius: 5px;
+    border: none;
+    font-size: 1em;
+    width: 100px;
+}
+
+.balance {
+    color: #ffd700;
+    font-size: 1.2em;
+    font-weight: bold;
+    margin-bottom: 15px;
+}
+
+.bet-section select {
+    padding: 10px;
+    margin: 10px 5px;
+    border-radius: 5px;
+    border: none;
+    font-size: 1em;
+    width: 120px;
+}
+
+.page-layout {
+    display: grid;
+    grid-template-columns: 250px minmax(500px, 800px) 250px;
+    gap: 24px;
+    align-items: start;
+    width: 100%;
+    max-width: 1400px;
+}
+
+.rules,
+.options,
+.game-stats {
+    background-color: rgba(255, 255, 255, 0.1);
+    border: 2px solid #ffd700;
+    border-radius: 10px;
+    padding: 20px;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.rules h3,
+.game-stats h3 {
+    color: #ffd700;
+    margin-bottom: 12px;
+}
+
+.rules ul {
+    padding-left: 20px;
+}
+
+.rules li {
+    margin-bottom: 10px;
+    line-height: 1.4;
+}

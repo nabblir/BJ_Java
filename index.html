@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blackjack Game</title>
+    <link rel="stylesheet" href="index.css">
+</head>
+<body>
+    <div class="page-layout">
+
+        <div class="rules">
+            <h3>Game Rules:</h3>
+            <ul>
+                <li>Try to get as close to 21 without going over.</li>
+                <li>Face cards are worth 10, Aces can be 1 or 11.</li>
+                <li>Dealer must hit until they reach at least 17.</li>
+                <li>If you get blackjack (21 with first two cards), you win 3:2 payout!</li>
+                <li>If you win, you get double your bet back. If you lose, you lose your bet.</li>
+            </ul>
+        </div>
+
+        <div class="container">
+            <h1>🎰 BLACKJACK 🎰</h1>
+
+            <div class="bet-section">
+                <div class="balance">Balance: $<span id="balance">1000</span></div>
+                <div class="balance">Please confirm your bet below:</div>
+                <select id="betAmount">
+                    <option value="25">25$</option>
+                    <option value="50">$50</option>
+                    <option value="75">$75</option>
+                    <option value="100">$100</option>
+                    <option value="150">$150</option>
+                    <option value="250">$250</option>
+                    <option value="500">$500</option>
+                </select>
+                <button onclick="placeBet()">Place Bet</button>
+            </div>
+
+            <div class="game-info">
+                <div class="info-box">
+                    <h3>Your Hand</h3>
+                    <p id="playerScore">Score: -</p>
+                </div>
+                <div class="info-box">
+                    <h3>Dealer Hand</h3>
+                    <p id="dealerScore">Score: -</p>
+                </div>
+            </div>
+
+            <div class="cards-area">
+                <div class="player-hand">
+                    <div class="hand-title">Your Hand</div>
+                    <div class="cards-display" id="playerCards"></div>
+                    <div class="hand-value" id="playerValue"></div>
+                </div>
+                <div class="dealer-hand">
+                    <div class="hand-title">Dealer Hand</div>
+                    <div class="cards-display" id="dealerCards"></div>
+                    <div class="hand-value" id="dealerValue"></div>
+                </div>
+            </div>
+
+            <div class="message-box" id="message">Current bet: $<span id="currentBet">50</span></div>
+            <div class="buttons">
+                <button onclick="startGame()" style="display: inline-block;">Deal cards</button>
+                <button class="hit" onclick="hit()" style="display: none;">Hit</button>
+                <button class="stand" onclick="stand()" style="display: none;">Stand</button>
+            </div>
+        </div>
+
+        <div class="right-panel">
+            <div class="options" id="options">
+                <button onclick="topUpBalance()">Top up balance ($1000)</button>
+                <button onclick="deleteToken()">Delete local storage</button>
+            </div>
+            <div class="game-stats">
+                <h3>Game Stats:</h3>
+                <p>Total Games Played: <span id="totalGames">0</span></p>
+                <p>Total Wins: <span id="totalWins">0</span></p>
+                <p>Total Losses: <span id="totalLosses">0</span></p>
+                <p>Win/Loss rate: <span id="winlossRate">0%</span></p>
+                <p>Total Pushes(Ties): <span id="totalPushes">0</span></p>
+                <p>Amount of blackjacks: <span id="blackjackWins">0</span></p>
+                <p>Total Winnings(Net): $<span id="totalWinnings">0</span></p>
+            </div>
+        </div>
+    </div>
+
+    <script src="cardLogic.js"></script>
+    <script src="gameLogic.js"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            InitializeGame();
+        });
+    </script>
+</body>
+</html>
